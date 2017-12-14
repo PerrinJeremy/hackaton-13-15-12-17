@@ -1,24 +1,12 @@
 <template>
-    <div class="">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Produit financier</th>
-                    <th>Montant</th>
-                    <th>Taux d'intérêt</th>
-                    <th>Risque</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="userItem in userassets">
-                    <td>{{userItem.name}}</td>
-                    <td>{{userItem.amount}} €</td>
-                    <td>{{userItem.rate*100}} %</td>
-                    <td>{{userItem.ratioRisk}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="el-table">
+        <tbody>
+            <tr class="el-table__row" v-for="userasset of userassets" @click="remove(userasset)">
+                <td>{{userasset.name}}</td>
+                <td>{{userasset.rate}}</td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 <script>
 import { mapState } from 'vuex';
@@ -30,6 +18,11 @@ export default {
             return this.$store.state.userassets;
         },
     },
+    methods: {
+        remove(asset) {
+            this.$store.dispatch('REMOVE_ASSET',asset.idAsset)
+        }
+    }
 };
 
 </script>

@@ -5,9 +5,11 @@ import store from './store';
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import Vuetify from 'vuetify'
 import App from './App';
 
 Vue.use(ElementUI);
+Vue.use(Vuetify);
 Vue.use(Vuex);
 Vue.config.productionTip = false;
 

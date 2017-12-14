@@ -5,15 +5,20 @@
         <div class="notification">
           Asset List
         </div>
-        <AssetList />
-        <UserAssets />
+        <el-row>
+          <el-col :span="12"><AssetList /></el-col>
+          <el-col :span="12"><UserAssets /></el-col>
+        </el-row> 
+        <simulation /> 
       </div>
     </div>
   </div>
 </template>
 <script>
-import AssetList from '../components/AssetList';
-import UserAssets from '../components/UserAssets';
+import AssetList from './AssetList';
+import UserAssets from './UserAssets';
+import Simulation from './Simulation';
+
 import store from '../store';
 
 export default {
@@ -21,8 +26,9 @@ export default {
   components: {
     AssetList,
     UserAssets,
+    Simulation
   },
-  mounted: function () {
+  mounted: function() {
     this.$store.dispatch('LOAD_ASSETS_LIST');
     this.$store.dispatch('LOAD_USER_ASSETS_LIST');
   },
