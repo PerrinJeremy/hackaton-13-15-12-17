@@ -1,43 +1,54 @@
 <template>
-    <el-table :data="assets" style="width: 100%">
-        <el-table-column prop="name" label="Produit financier" width="350">
-        </el-table-column>
-        <el-table-column prop="rate" label="Taux d'intérêt (%)" width="180">
-        </el-table-column>
-        <el-table-column prop="ratioRisk" label="Risque">
-        </el-table-column>
-    </el-table>
-    <!-- <div class="">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Asset Proposal</th>
-                    <th>Taux d'intérêt</th>
-                    <th>Risque</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in assets">
-                    <td>{{item.name}}</td>
-                    <td>{{item.rate}} %</td>
-                    <td>{{item.ratioRisk}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
+  <table class="el-table">
+    <tbody>
+      <tr class="el-table__row" v-for="asset of assets" @click="select(asset)">
+        <td>{{asset.name}}</td>
+        <td>{{asset.rate}}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 <script>
 import { mapState } from 'vuex';
+import store from '../store';
 
 export default {
-    name: 'assetlist',
-    computed: {
-        assets() {
-            console.log(this.$store.state.assets)
-        return this.$store.state.assets;
-        },
-    },
+  name: 'assetlist',
+  computed: {
+    assets: () => store.state.assets
+  },
+  data() {
+    return {
+      newAsset: {
+        idUser: 2,
+        idAssetModel: '',
+        name: '',
+        amount: '2000',
+        rate: '',
+        start: null,
+        end: null
+      }
+    }
+  },
+  methods: {
+    select(asset) {
+      console.log('ok');
+      this.newAsset.idAsset=asset.idAsset,
+      this.newAsset.idAssetModel=asset.idAssetModel,
+      this.newAsset.name=asset.name,
+      this.newAsset.rate=asset.rate/100;
+      console.log(this.newAsset)
+      this.$store.dispatch('ADD_ASSET',this.newAsset)
+    }
+  }
 };
 </script>
 <style>
+table {
+  margin-top: 30px;
+}
+
+.cell {
+  text-align: center;
+}
 </style>

@@ -9,10 +9,10 @@ import locale from 'element-ui/lib/locale/lang/fr'
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App';
 
-Vue.use(ElementUI , { locale });
+Vue.use(ElementUI);
+Vue.use(Vuetify);
 Vue.use(Vuex);
 Vue.config.productionTip = false;
-Vue.use(Vuetify);
 
 new Vue({
   el: '#app',
