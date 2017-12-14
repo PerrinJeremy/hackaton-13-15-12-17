@@ -11,7 +11,7 @@ const store = new Vuex.Store({
   actions: {
     LOAD_ASSETS_LIST: function ({ commit }) {
       axios.get('https://ulnjbgo4dl.execute-api.eu-central-1.amazonaws.com/dev/hackaton/user/asset/model').then((response) => {
-        commit('SET_ASSETS_LIST', { list: response.data.body });
+        commit('SET_ASSETS_LIST', { list: response.data });
       }, (err) => {
         console.log(err)
       });
@@ -26,7 +26,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     SET_ASSETS_LIST: (state, { list }) => {
-      state.assets = JSON.parse(list);
+      state.assets = list;
     },
     SET_USER_ASSETS_LIST: (state, { userlist }) => {
       state.userassets = userlist;

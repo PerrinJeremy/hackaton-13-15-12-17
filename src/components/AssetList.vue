@@ -33,13 +33,11 @@ export default {
     name: 'assetlist',
     computed: {
         assets() {
-            return this.$store.state.assets;
+            console.log(this.$store.state.assets)
+        return this.$store.state.assets;
         },
     },
 };
 </script>
 <style>
-table {
-    margin-top: 30px;
-}
 </style>

@@ -14,7 +14,7 @@
                     <td>{{userItem.name}}</td>
                     <td>{{userItem.amount}} €</td>
                     <td>{{userItem.rate*100}} %</td>
-                    <td>{{userItem.ratioRisk}}</td>
+                    <td>{{userItem.idAssetCategory}}</td>
                 </tr>
             </tbody>
         </table>
