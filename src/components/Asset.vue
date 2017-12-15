@@ -9,10 +9,30 @@
           <el-col :span="12"><AssetList /></el-col>
           <el-col :span="12"><UserAssets /></el-col>
         </el-row> 
-        <simulation /> 
+        <br>
+<div ><h4>Situation Idéale au vue de vos souhaits</h4>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="10" text-inside="Compte Courant"></el-progress><span>Compte Courant</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="20" status="success"></el-progress><span>Epargne Disponible</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></el-progress><span>Placements</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="20" status="warning"></el-progress><span>Biens Materiel</span>
+</div>
+<div ><h4>Votre Situation Actuelle</h4>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="60" ></el-progress><span>Compte Courant</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="40" status="success"></el-progress><span>Epargne Disponible</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="0" status="exception"></el-progress><span>Placements</span>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="0" status="warning"></el-progress><span>Biens Materiel</span>
+</div>
+
+        <div class="vide">vide</div>
+        <simulation></simulation>
       </div>
     </div>
-    <footer></footer>
+    <br>
+    <div class ="footer">
+      <img class="logo" src="../assets/amf-logo.jpg" alt="amf"  margin-top="10"width="70" height="50">
+      <img class="logo1" src="../assets/acpr.png" alt="amf"  margin-top="10"width="70" height="50">
+      <img class="logo2" src="../assets/Logo-Orias-2013(1).jpg" alt="amf"  margin-top="10"width="70" height="50">
+    </div>
   </div>
 </template>
 <script>
@@ -21,13 +41,18 @@ import UserAssets from "../components/UserAssets";
 import store from "../store";
 import Navbar from "../components/Navbar";
 import Simulation from "../components/Simulation";
+import footer from "../components/footer";
+import progressiveBar from "../components/progressiveBar"
 
 export default {
   name: "assets",
   components: {
     AssetList,
     UserAssets,
-    Simulation
+    Simulation,
+    Navbar,
+    footer,
+    progressiveBar
   },
   mounted: function() {
     this.$store.dispatch('LOAD_ASSETS_LIST');
@@ -35,3 +60,30 @@ export default {
   },
 };
 </script>
+<style>
+.vide{
+height: 20px;
+color:white;
+
+}
+.footer {
+  height:70px;
+  width:auto;
+  background-color:#36abd7;
+}
+.logo{
+  margin-top:10px;
+  margin-left:200px;
+  margin-right:200px;
+}
+.logo1{
+  margin-top:10px;
+  margin-left:200px;
+  margin-right:200px;
+}
+.logo2{
+  margin-top:10px;
+  margin-left:200px;
+  margin-right:200px;
+}
+</style>

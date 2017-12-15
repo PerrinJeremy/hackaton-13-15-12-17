@@ -15,11 +15,13 @@ export default {
     name: 'userAssetlist',
     computed: {
         userassets() {
+
             return this.$store.state.userassets;
         },
     },
     methods: {
         remove(asset) {
+            this.$store.dispatch('LOAD_USER_ASSETS_LIST')
             this.$store.dispatch('REMOVE_ASSET',asset.idAsset)
         }
     }
