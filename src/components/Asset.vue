@@ -6,11 +6,13 @@
         <div class="notification">
         </div>
         <el-row>
-          <el-col :span="12"><AssetList /></el-col>
+          <el-col :span="12"><Model /></el-col>
           <el-col :span="12"><UserAssets /></el-col>
         </el-row> 
         <br>
-<div ><h4>Situation Idéale au vue de vos souhaits</h4>
+        <div class="situation">
+<div>
+  <h4>Situation Idéale au vue de vos souhaits</h4>
 <el-progress :text-inside="true" :stroke-width="18" :percentage="10" text-inside="Compte Courant"></el-progress><span>Compte Courant</span>
 <el-progress :text-inside="true" :stroke-width="18" :percentage="20" status="success"></el-progress><span>Epargne Disponible</span>
 <el-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></el-progress><span>Placements</span>
@@ -34,6 +36,7 @@
       <img class="logo2" src="../assets/Logo-Orias-2013(1).jpg" alt="amf"  margin-top="10"width="70" height="50">
     </div>
   </div>
+  </div>
 </template>
 <script>
 import AssetList from "../components/AssetList";
@@ -42,7 +45,9 @@ import store from "../store";
 import Navbar from "../components/Navbar";
 import Simulation from "../components/Simulation";
 import footer from "../components/footer";
-import progressiveBar from "../components/progressiveBar"
+import progressiveBar from "../components/progressiveBar";
+import Model from "../components/Model";
+
 
 export default {
   name: "assets",
@@ -52,7 +57,8 @@ export default {
     Simulation,
     Navbar,
     footer,
-    progressiveBar
+    progressiveBar,
+    Model
   },
   mounted: function() {
     this.$store.dispatch('LOAD_ASSETS_LIST');
@@ -85,5 +91,8 @@ color:white;
   margin-top:10px;
   margin-left:200px;
   margin-right:200px;
+}
+.situation{
+  margin-top:400px;
 }
 </style>

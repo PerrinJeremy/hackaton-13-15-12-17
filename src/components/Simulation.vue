@@ -11,6 +11,8 @@
             </el-table-column>
             <el-table-column prop="cumulatedAmount" label="Gains Cumulés" width="350">
             </el-table-column>
+            <el-table-column prop="totalAccumulatedAmount" label="Gains Cumulés" width="350">
+            </el-table-column>
         </el-table>
        <!--  <tr v-for="prod of simulation" ><p>{{prod.name}}
             </p><td v-for="item of prod.totalAccumulatedAmount">{{item}}
