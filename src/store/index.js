@@ -1,10 +1,15 @@
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import * as THREE from 'three';
+var CSS3DRenderer = require('three-renderer-css3d');
 
+Vue.use(THREE);
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
+    table: [],
     assets: [],
     userassets: [],
     simulation: [],
@@ -41,12 +46,10 @@ const store = new Vuex.Store({
   mutations: {
     SET_ASSETS_LIST: (state, { list }) => {
       state.assets = list;
+      state.table = list;
     },
     SET_USER_ASSETS_LIST: (state, { userlist }) => {
       state.userassets = userlist;
-      for (let item of state.userassets) {
-        item.rate *= 100;
-      }
     },
     SET_SIMULATION: (state, { simul }) => {
       state.simulation = simul;

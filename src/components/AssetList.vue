@@ -1,15 +1,19 @@
 <template>
-  <table class="el-table">
-    <tbody>
-      <tr class="el-table__row" v-for="asset of assets" @click="select(asset)">
-        <td>{{asset.name}}</td>
-        <td>{{asset.rate}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="el-table">
+      <tbody>
+        <tr class="el-table__row" v-for="asset of assets" @click="select(asset)">
+          <td>{{asset.name}}</td>
+          <td>{{asset.rate}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <Model />
+  </div>
 </template>
 <script>
 import { mapState } from 'vuex';
+import Model from './Model';
 import store from '../store';
 
 export default {
@@ -30,15 +34,15 @@ export default {
       }
     }
   },
+  components: {Model},
   methods: {
     select(asset) {
-      console.log('ok');
-      this.newAsset.idAsset=asset.idAsset,
-      this.newAsset.idAssetModel=asset.idAssetModel,
-      this.newAsset.name=asset.name,
-      this.newAsset.rate=asset.rate
-      console.log(this.newAsset)
-      this.$store.dispatch('ADD_ASSET',this.newAsset)
+      console.log('toto')
+      this.newAsset.idAsset = asset.idAsset,
+        this.newAsset.idAssetModel = asset.idAssetModel,
+        this.newAsset.name = asset.name,
+        this.newAsset.rate = asset.rate / 100
+      this.$store.dispatch('ADD_ASSET', this.newAsset)
     }
   }
 };

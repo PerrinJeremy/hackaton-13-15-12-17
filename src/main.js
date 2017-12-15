@@ -5,9 +5,13 @@ import store from './store';
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import Vuetify from 'vuetify'
+import Vuetify from 'vuetify';
 import App from './App';
+import * as THREE from 'three';
+var CSS3DRenderer = require('three-renderer-css3d');
+var CSS3DObject = require('three-renderer-css3d');
 
+Vue.use(THREE);
 Vue.use(ElementUI);
 Vue.use(Vuetify);
 Vue.use(Vuex);

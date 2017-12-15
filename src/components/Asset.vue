@@ -6,10 +6,10 @@
           Asset List
         </div>
         <el-row>
-          <el-col :span="12"><AssetList /></el-col>
+          <el-col :span="12"><Model /></el-col>
           <el-col :span="12"><UserAssets /></el-col>
         </el-row> 
-        <simulation /> 
+        <simulation />
       </div>
     </div>
   </div>
@@ -18,6 +18,7 @@
 import AssetList from './AssetList';
 import UserAssets from './UserAssets';
 import Simulation from './Simulation';
+import Model from './Model';
 
 import store from '../store';
 
@@ -26,7 +27,8 @@ export default {
   components: {
     AssetList,
     UserAssets,
-    Simulation
+    Simulation,
+    Model
   },
   mounted: function() {
     this.$store.dispatch('LOAD_ASSETS_LIST');
